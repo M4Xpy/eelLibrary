@@ -18,10 +18,11 @@ eel.init("static")
 
 
 @eel.expose
-def create_book(title: str, description: str) -> str:
+def create_book(title: str, description: str, ) -> str:
     """ Inserting a new entry into the database """
     c.execute(
-        "INSERT INTO books (title, description) VALUES (?, ?)", (title, description)
+        "INSERT INTO books (title, description) VALUES (?, ?)",
+        (title, description)
     )
     conn.commit()
     return "Книга успішно створена!"
@@ -43,6 +44,7 @@ def delete_book(book_id: int, ) -> str:
     return "Книга успішно видалена!"
 
 
-eel.start(
-    "create_book.html",
-)
+if __name__ == '__main__':
+    eel.start(
+        "create_book.html",
+    )
