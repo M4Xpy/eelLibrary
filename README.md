@@ -13,3 +13,13 @@ source venv/bin/activate
 pip install requirements.txt
 python main.py
 ```
+
+
+
+## Run  with  docker
+
+Docker  should  be  installed
+```shell
+sudo docker build -t eel-app .
+sudo docker run -p 8000:8000 eel-app
+```
